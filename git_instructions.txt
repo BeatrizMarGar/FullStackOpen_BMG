@@ -1,0 +1,11 @@
+Steps to follow:
+
+1. In the folder where you want to have the repo, open a console.
+
+2. run 'git init' command to start the repository
+
+3. In my case, I have added this txt with the command 'git add git_instructions.txt'
+
+4. I have checked the status of my repository using 'git status'
+
+5. I have published my txt running 'git commit -m "01_git_instructions"
