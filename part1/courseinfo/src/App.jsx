@@ -8,7 +8,17 @@ const Header = (props) => {
 const Content = (props) => {
   return (
     <div>
-      <p>The part {props.name} has a total of {props.exercises} exercises</p></div>
+      <Part name={props.name1} ex={props.exercises1}/>
+      <Part name={props.name2} ex={props.exercises2}/>
+      <Part name={props.name3} ex={props.exercises3}/>
+    </div>
+  )
+}
+const Part = (props) => {
+  return (
+    <div>
+    <p>The part {props.name} has a total of {props.ex} exercises</p>
+    </div>
   )
 }
 const Total = (props) => {
@@ -32,9 +42,7 @@ const App = () => {
   return (
     <div>
       <Header coursename={course}/>
-      <Content name={part1} exercises={exercises1}/>
-      <Content name={part2} exercises={exercises2}/>
-      <Content name={part3} exercises={exercises3}/>
+      <Content name1={part1} exercises1={exercises1} name2={part2} exercises2={exercises2} name3={part3} exercises3={exercises3}/>
       <Total totalexercises={exercises1 + exercises2 + exercises3} />
     </div>
   )
