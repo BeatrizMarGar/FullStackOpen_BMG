@@ -1,73 +1,30 @@
-const Header = (props) => {
-  return (
-    <div>
-      <h1>{props.coursename}</h1>
-    </div>
-  )
-}
-const Content = (props) => {
-  let parts = props.parts
-  let myelements = parts.map(element => {
-    let name = element.name
-    let exercise = element.exercises
-    return (
-      <Part name={name} ex={exercise}/>
-    )
-  })
-  
-  return (
-    <div>
-      {myelements}
-     </div>
-  )
-}
-const Part = (props) => {
-  return (
-    <div>
-    <p>The part {props.name} has a total of {props.ex} exercises</p>
-    </div>
-  )
-}
-const Total = (props) => {
-  let total = 0;
-  let parts = props.totalexercises
-  parts.forEach(element => {
-    let number = element.exercises;
-    total += number;
-  });
-  return (
-    <div>
-      <p>This course presents a total of {total} exercises</p>
-    </div>
-  )
-}
+import { useState } from "react";
 
 const App = () => {
-  const course = {
-    name: 'Half Stack application development',
-    parts: [
-      {
-        name: 'Fundamentals of React',
-        exercises: 10
-      },
-      {
-        name: 'Using props to pass data',
-        exercises: 7
-      },
-      {
-        name: 'State of a component',
-        exercises: 14
-      }
-    ]
-  }
-  //<Total totalexercises={course.parts[exercises]} />
-  return (
+  const [Good, setGood] = useState(0)
+  const [Neutral, setNeutral] = useState(0)
+  const [Bad, setBad] = useState(0)
+
+  const newGood = () => {setGood(Good + 1 )}
+  const newNeutral = () => {setNeutral(Neutral + 1 )}
+  const newBad = () => {setBad(Bad + 1 )}
+
+  return(
     <div>
-      <Header coursename={course.name}/>
-      <Content parts={course.parts}/>
-      <Total totalexercises={course.parts}/>
+      <h2>Give Feedback</h2>
+      <button onClick={newGood}>good</button>
+      <button onClick={newNeutral}>neutral</button>
+      <button onClick={newBad}>bad</button>
+      <br></br>
+      <h2>Statics</h2>
+      <p>Good {Good}</p>
+      <p>Neutral {Neutral}</p>
+      <p>Bad {Bad}</p>
     </div>
   )
+
+
 }
+
 
 export default App
