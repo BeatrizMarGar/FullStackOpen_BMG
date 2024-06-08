@@ -1,10 +1,11 @@
 import { useState } from "react"
 
-const History = (props) => {
-  if (props.allClicks.length === 0){
-    return
-  }
-
+const Statics = (props) => {
+  return (
+    <div>
+      <p>{props.text} : {props.result}</p>
+      </div>
+  )
 }
 
 const App = () => {
@@ -65,15 +66,15 @@ const App = () => {
       <button onClick={newBad}>bad</button>
       <br></br>
       <h2>Statics</h2>
-      <p>Good {Good}</p>
-      <p>Neutral {Neutral}</p>
-      <p>Bad {Bad}</p>
+      <Statics text={"Good Reviews"} result={Good}/>
+      <Statics text={"Neutral Reviews"} result={Neutral}/>
+      <Statics text={"Bad Reviews"} result={Bad}/>
       <br></br>
-      <p>All {All}</p>
+      <Statics text={"All reviews"} result={All}/>
       <br></br>
-      <p>Average {Average}</p>
+      <Statics text={"Total Average"} result={Average}/>
       <br></br>
-      <p>Positive {Positive}</p>
+      <Statics text={"Positive reviews"} result={Positive}/>
     </div>
   )
 
