@@ -1,11 +1,25 @@
 import { useState } from "react"
 
 const Statics = (props) => {
+  props.result ? console.log("true") : console.log("false")
+
+  if (props.all){
+    return (
+      <div>
+        <p>Good : {props.good}</p>
+        <p>Neutral : {props.neutral}</p>
+        <p>Bad : {props.bad}</p>
+        <br></br>
+        <p>All feedback : {props.all}</p>
+        <p>Average : {props.average}</p>
+        <p>Positive : {props.positive}</p>
+        </div>
+    )
+  }
   return (
-    <div>
-      <p>{props.text} : {props.result}</p>
-      </div>
+    <div> No feedback given</div>
   )
+  
 }
 
 const App = () => {
@@ -66,15 +80,7 @@ const App = () => {
       <button onClick={newBad}>bad</button>
       <br></br>
       <h2>Statics</h2>
-      <Statics text={"Good Reviews"} result={Good}/>
-      <Statics text={"Neutral Reviews"} result={Neutral}/>
-      <Statics text={"Bad Reviews"} result={Bad}/>
-      <br></br>
-      <Statics text={"All reviews"} result={All}/>
-      <br></br>
-      <Statics text={"Total Average"} result={Average}/>
-      <br></br>
-      <Statics text={"Positive reviews"} result={Positive}/>
+      <Statics good={Good} neutral={Neutral}bad={Bad} all={All} average={Average} positive={Positive}/>
     </div>
   )
 
