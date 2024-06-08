@@ -11,7 +11,7 @@ const Button = (props) => {
 const StatisticLine = (props) => {
   return (
     <div>
-      <p>{props.text} : {props.statistic}</p>
+      <p>{props.statistic}</p>
     </div>
   )
 }
@@ -22,13 +22,44 @@ const Statics = (props) => {
   if (props.all){
     return (
       <div>
-        <StatisticLine text="Good" statistic={props.good} />
-        <StatisticLine text="Neutral" statistic={props.neutral} />
-        <StatisticLine text="Bad" statistic={props.bad} />
-        <br></br>
-        <StatisticLine text="All feedback" statistic={props.all} />
-        <StatisticLine text="Average" statistic={props.average} />
-        <StatisticLine text="Positive" statistic={props.positive} />
+        <table>
+          <tr>
+          </tr>
+          <tr>
+            <td>Good</td>
+            <td>
+            <StatisticLine text="Good" statistic={props.good} />
+            </td>
+          </tr>
+          <tr>
+            <td>Neutral</td>
+            <td>
+              <StatisticLine text="Neutral" statistic={props.neutral} /></td>
+          </tr>
+          <tr>
+            <td>Bad</td>
+            <td>
+              <StatisticLine text="Bad" statistic={props.bad} /></td>
+          </tr>
+          <tr>
+            <td>ALL</td>
+            <td>
+              <StatisticLine text="All feedback" statistic={props.all} />
+            </td>
+          </tr>
+          <tr>
+            <td>Average</td>
+            <td>
+              <StatisticLine text="Average" statistic={props.average} />
+            </td>
+          </tr>
+          <tr>
+            <td>Positive</td>
+            <td>
+              <StatisticLine text="Positive" statistic={props.positive} />
+            </td>
+          </tr>
+        </table>
         </div>
     )
   }
