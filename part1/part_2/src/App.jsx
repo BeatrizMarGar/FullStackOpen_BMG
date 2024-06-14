@@ -1,3 +1,5 @@
+import { useState } from "react"
+
 const App = () => {
   const course = {
     id: 1,
@@ -46,16 +48,20 @@ const Content = (props) =>{
   const parts = props.parts
   return (
     <div>
-      {parts.map(part =>
+      {parts.map(part => 
         <Part details={part} key={part.id}></Part>
       )}
+        <p>Total exercises: 
+          {
+            parts.reduce((sum, part) => sum + part.exercises, 0)
+          }
+        </p>
     </div>
   )
 }
 
 const Part = (props) => {
   const detail = props.details
-  console.log(detail)
   return (
     <div>
       <p>{detail.name} {detail.exercises}</p>
